@@ -11,7 +11,7 @@
                        C
                   L    C
                        C
-                       C
+        2              C
 CCCCCCCCCCCCCCCCCCCCCCCC
 BBBBBBBBBBBBBBBBBBBBBBBB
 BBBBBBBBBBBBBBBBBBBBBBBB

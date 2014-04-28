@@ -46,17 +46,6 @@ public class Player extends Creature {
     }
 
 
-    /**
-        Makes the player jump if the player is on the ground or
-        if forceJump is true.
-    */
-    public void jump(boolean forceJump) {
-        if (onGround || forceJump) {
-            onGround = false;
-            setVelocityY(JUMP_SPEED);
-        }
-    }
-
 
     public float getMaxSpeed() {
         return 0.5f;

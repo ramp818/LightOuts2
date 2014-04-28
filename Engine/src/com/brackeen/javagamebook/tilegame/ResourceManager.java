@@ -287,12 +287,9 @@ public class ResourceManager {
         Image player2, Image player3)
     {
         Animation anim = new Animation();
-        anim.addFrame(player1, 250);
-        anim.addFrame(player2, 150);
-        anim.addFrame(player1, 150);
-        anim.addFrame(player2, 150);
-        anim.addFrame(player3, 200);
-        anim.addFrame(player2, 150);
+        anim.addFrame(player1, 100);
+        anim.addFrame(player2, 100);
+        anim.addFrame(player3, 100);
         return anim;
     }
 
