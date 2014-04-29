@@ -108,9 +108,9 @@ public class TileMapRenderer {
 
         // draw parallax background image
         if (background != null) {
-            int x = offsetX *
-                (screenWidth - background.getWidth(null)) /
-                (screenWidth - mapWidth);
+            int x = offsetX;// *
+//                (screenWidth - background.getWidth(null)) /
+//                (screenWidth - mapWidth);
             int y = screenHeight - background.getHeight(null);
 
             g.drawImage(background, x, y, null);
