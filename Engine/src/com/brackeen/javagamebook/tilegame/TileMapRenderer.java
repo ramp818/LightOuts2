@@ -83,6 +83,7 @@ public class TileMapRenderer {
     {
         Sprite player = map.getPlayer();
         int mapWidth = tilesToPixels(map.getWidth());
+        int mapHeight = tilesToPixels(map.getHeight());
 
         // get the scrolling position of the map
         // based on player's position
@@ -92,8 +93,10 @@ public class TileMapRenderer {
         offsetX = Math.max(offsetX, screenWidth - mapWidth);
 
         // get the y offset to draw all sprites and tiles
-        int offsetY = screenHeight -
-            tilesToPixels(map.getHeight());
+        int offsetY = screenHeight / 2 -
+            Math.round(player.getY()) - TILE_SIZE;
+        offsetY = Math.min(0, offsetY);
+        offsetY = Math.max(screenHeight - mapHeight, offsetY);
 
         // draw black background, if needed
         if (background == null ||
