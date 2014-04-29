@@ -1,19 +1,20 @@
-﻿CC     CCCCCCCCCCCCCCCCCC
-C                      C
-C                      C
-C      LMC             C
-C       NC             C
-C        B             C
-C        B             C
-CCCCCCC      CCCCCCCCCCC
-CBBBBBB      BBBBBBBBBBC
-CBBBBBB      BBB0?BB¿@!C
-C 357                  C
-C 468             L    C
-C  9                   C
-C                      C
-CCCCCCCCCCCCCCCCCCCCCCCC
-BBBBBBBBBBBBBBBBBBBBBBBB
-BBBBBBBBBBBBBBBBBBBBBBBB
-
-
+﻿CC  CCCCCCCCCCCCCCCCCCCCCCC
+C     BJBBCDPPRSBUWYBBBOCCC
+C     BKBBCEQQBTBVXZBBB*CCC
+C       LMC             CCC
+C        NC             CCC
+C         C             CCC
+C         B             CCC
+C         B             CCC
+CCCCCCCC      CCCCCCCCCCCCC
+CCDDDBBB      BBBBBBBBBBCCC
+CCEEEBBB      BBIBBBBHGFCCC
+CC                      CCC
+CC                 L    CCC
+CC                      CCC
+CC                      CCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCC
+BBBBBBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBBBBBB
