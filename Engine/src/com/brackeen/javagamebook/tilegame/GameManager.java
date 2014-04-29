@@ -12,6 +12,9 @@ import com.brackeen.javagamebook.graphics.*;
 import com.brackeen.javagamebook.sound.*;
 import com.brackeen.javagamebook.input.*;
 import com.brackeen.javagamebook.test.GameCore;
+import static com.brackeen.javagamebook.tilegame.SlidingPane.x;
+
+
 import com.brackeen.javagamebook.tilegame.sprites.*;
 
 /**
@@ -20,7 +23,14 @@ import com.brackeen.javagamebook.tilegame.sprites.*;
 public class GameManager extends GameCore {
 
     public static void main(String[] args) {
-        new GameManager().run();
+        SlidingPane fw=new SlidingPane();
+        
+        do{
+            if(x==0){
+                new GameManager().run();
+            }
+        }while(x==1);
+        
     }
 
     // uncompressed, 44100Hz, 16-bit, mono, signed, little-endian
@@ -261,6 +271,8 @@ public class GameManager extends GameCore {
         in the current map.
     */
     public void update(long elapsedTime) {
+        
+        
         Creature player = (Creature)map.getPlayer();
 
 
