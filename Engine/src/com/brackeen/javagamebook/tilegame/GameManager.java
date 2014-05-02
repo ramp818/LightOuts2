@@ -24,7 +24,6 @@ public class GameManager extends GameCore {
 
     public static void main(String[] args) {
         SlidingPane fw=new SlidingPane();
-        
         do{
             if(x==0){
                 new GameManager().run();
@@ -56,11 +55,13 @@ public class GameManager extends GameCore {
     private GameAction moveUp;
     private GameAction moveDown;
     private GameAction exit;
+    
+    private boolean key;
 
 
     public void init() {
         super.init();
-
+        key=false;
         // set up input manager
         initInput();
 
@@ -80,11 +81,9 @@ public class GameManager extends GameCore {
         boopSound = soundManager.getSound("sounds/boop2.wav");
 
         // start music
-        midiPlayer = new MidiPlayer();
-        Sequence sequence =
-            midiPlayer.getSequence("sounds/music.midi");
-        midiPlayer.play(sequence, true);
-        toggleDrumPlayback();
+        //fondo = new SoundClip("sounds/slicey.wav");
+        //fondo.setLooping(true);
+        //fondo.play();
     }
 
 
@@ -93,7 +92,6 @@ public class GameManager extends GameCore {
     */
     public void stop() {
         super.stop();
-        midiPlayer.close();
         soundManager.close();
     }
 
@@ -164,13 +162,6 @@ public class GameManager extends GameCore {
     /**
         Turns on/off drum playback in the midi music (track 1).
     */
-    public void toggleDrumPlayback() {
-        Sequencer sequencer = midiPlayer.getSequencer();
-        if (sequencer != null) {
-            sequencer.setTrackMute(DRUM_TRACK,
-                !sequencer.getTrackMute(DRUM_TRACK));
-        }
-    }
 
 
     /**
@@ -316,11 +307,6 @@ public class GameManager extends GameCore {
         long elapsedTime)
     {
 
-        // apply gravity
-        if (!creature.isFlying()) {
-            creature.setVelocityY(creature.getVelocityY() +
-                GRAVITY * elapsedTime);
-        }
 
         // change x
         float dx = creature.getVelocityX();
@@ -421,13 +407,13 @@ public class GameManager extends GameCore {
         if (powerUp instanceof PowerUp.Star) {
             // do something here, like give the player points
             soundManager.play(prizeSound);
+            key=true;
         }
         else if (powerUp instanceof PowerUp.Music) {
             // change the music
             soundManager.play(prizeSound);
-            toggleDrumPlayback();
         }
-        else if (powerUp instanceof PowerUp.Goal) {
+        else if (key && powerUp instanceof PowerUp.Goal) {
             // advance to next map
             soundManager.play(prizeSound,
                 new EchoFilter(2000, .7f), false);

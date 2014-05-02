@@ -17,6 +17,8 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
@@ -35,10 +37,17 @@ public class SlidingPane {
     
 public static boolean empezar=false;
 public static  int x=1;
-    private SlidePane slidePane = new SlidePane();
+private SlidePane slidePane = new SlidePane();
+private SoundClip Musicafondo;
+private SoundClip laugh;
+private Image fondo;
 
     public SlidingPane() {
-        //pium=new SoundClip("sounds/pium.wav");
+        Musicafondo = new SoundClip("sounds/slicey.wav");
+        Musicafondo.setLooping(true);
+        Musicafondo.play();
+        fondo = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/FondoMenu.png"));
+        
         
         EventQueue.invokeLater(new Runnable() {
             @Override
@@ -56,15 +65,7 @@ public static  int x=1;
                     @Override
                     public void actionPerformed(ActionEvent e) {
                     //pium.play();
-                   
-                x=0;   
-        //new GameManager().run();
-        
-                        
-                        
-
-                        
-                                
+                x=0;                 
 
                     }
                 });
