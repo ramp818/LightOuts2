@@ -175,7 +175,6 @@ public class ResourceManager {
                 }
             }
         }
-
         // add the player to the map
         Sprite player = (Sprite)playerSprite.clone();
         player.setX(100);

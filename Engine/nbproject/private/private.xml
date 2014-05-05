@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pache/Documents/GitHub/LightOuts2/Engine/src/com/brackeen/javagamebook/tilegame/GameManager.java</file>
-            <file>file:/C:/Users/Pache/Documents/GitHub/LightOuts2/Engine/src/com/brackeen/javagamebook/tilegame/sprites/Creature.java</file>
-            <file>file:/C:/Users/Pache/Documents/GitHub/LightOuts2/Engine/src/com/brackeen/javagamebook/tilegame/sprites/Fly.java</file>
-            <file>file:/C:/Users/Pache/Documents/GitHub/LightOuts2/Engine/src/com/brackeen/javagamebook/tilegame/sprites/Player.java</file>
-            <file>file:/C:/Users/Pache/Documents/GitHub/LightOuts2/Engine/src/com/brackeen/javagamebook/tilegame/sprites/Grub.java</file>
             <file>file:/C:/Users/Pache/Documents/GitHub/LightOuts2/Engine/src/com/brackeen/javagamebook/tilegame/ResourceManager.java</file>
+            <file>file:/C:/Users/Pache/Documents/GitHub/LightOuts2/Engine/src/com/brackeen/javagamebook/tilegame/GameManager.java</file>
+            <file>file:/C:/Users/Pache/Documents/GitHub/LightOuts2/Engine/src/com/brackeen/javagamebook/tilegame/TileMap.java</file>
+            <file>file:/C:/Users/Pache/Documents/GitHub/LightOuts2/Engine/src/com/brackeen/javagamebook/tilegame/TileMapRenderer.java</file>
         </group>
     </open-files>
 </project-private>

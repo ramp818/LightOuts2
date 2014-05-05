@@ -1,18 +1,24 @@
-﻿CC  CCCCCCCCCCCCCCCCCCCCCCC
-C     BJBBC  PRSBUWYBBBOCCC
-C     BKBBCEQQBTBVXZBBB*CCC
-C                       CCC
-C                       CCC
-C                       CCC
-C                       CCC
-C                       CCC
-C                       CCC
-C                       CCC
-C                       CCC
-C                       CCC
-C                       CCC
-CCCCCCCCCCCCCCCCCCCCCCCCCCC
-CCCCCCCCCCCCCCCCCCCCCCCCCCC
-BBBBBBBBBBBBBBBBBBBBBBBBBBB
-BBBBBBBBBBBBBBBBBBBBBBBBBBB
-BBBBBBBBBBBBBBBBBBBBBBBBBBB
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CBBRBBCBBBBBSBBBBBBBBBBBPDBBBBBBBBBBBBBBCBBBBBBBBUWYBBBBBBBC
+CBBBBBCBBBBBTBBBBBBBBBBBQEBBBBBBBBBBBBBBCBBBBBBBBVXZBBBBBBBC
+C     C                                 CM                 C
+C     C                                 CN                 C
+C     C           C                     C                  C
+C     C           C                     CCCCCCCCCCCCCCC    C
+C     C           C                     BBBBBBBBBPDBBBB    C
+C     C           C                     BBBBBBBBBQEBBBB    C
+C     C           C                                        C
+C     C           C                                        C
+C     CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC                  C
+C     BBBBBBBRBBBBCBBBBDBBBBBBBJBBBBBBBBB                  C
+C     BBBBBBBBBBBBCBBBBEBBBBBBBKBBBBBBBBB                  C
+C                 C                             C   CCCCCCCC
+C                 B                             C   BBBBBBBC
+C                 B                             C   BBBBBBBC
+C                                               C         MC
+C                                               C         NC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB

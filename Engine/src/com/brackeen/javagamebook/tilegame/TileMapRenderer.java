@@ -28,6 +28,7 @@ public class TileMapRenderer {
     private static final int TILE_SIZE_BITS = 6;
 
     private Image background;
+    private Image face;
 
     /**
         Converts a pixel position to a tile position.
@@ -108,10 +109,8 @@ public class TileMapRenderer {
 
         // draw parallax background image
         if (background != null) {
-            int x = offsetX;// *
-//                (screenWidth - background.getWidth(null)) /
-//                (screenWidth - mapWidth);
-            int y = screenHeight - background.getHeight(null);
+            int x = offsetX;
+            int y = offsetY;//screenHeight - background.getHeight(null);
 
             g.drawImage(background, x, y, null);
         }
@@ -137,6 +136,8 @@ public class TileMapRenderer {
             Math.round(player.getX()) + offsetX,
             Math.round(player.getY()) + offsetY,
             null);
+        
+         
 
         // draw sprites
         Iterator i = map.getSprites();

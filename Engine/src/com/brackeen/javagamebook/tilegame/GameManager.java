@@ -4,8 +4,6 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Iterator;
 
-import javax.sound.midi.Sequence;
-import javax.sound.midi.Sequencer;
 import javax.sound.sampled.AudioFormat;
 
 import com.brackeen.javagamebook.graphics.*;
@@ -55,13 +53,23 @@ public class GameManager extends GameCore {
     private GameAction moveUp;
     private GameAction moveDown;
     private GameAction exit;
+    private GameAction pause;
     
     private boolean key;
+    private boolean paused;
+    
+    private int score;
+    private float health=100;
+    private float maxHealth=150;
+    private Image face;
+    
 
 
     public void init() {
         super.init();
         key=false;
+        paused=false;
+        score=0;
         // set up input manager
         initInput();
 
@@ -80,10 +88,8 @@ public class GameManager extends GameCore {
         prizeSound = soundManager.getSound("sounds/prize.wav");
         boopSound = soundManager.getSound("sounds/boop2.wav");
 
-        // start music
-        //fondo = new SoundClip("sounds/slicey.wav");
-        //fondo.setLooping(true);
-        //fondo.play();
+        //Carga cara personaje
+        face = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/face.png"));
     }
 
 
@@ -101,6 +107,7 @@ public class GameManager extends GameCore {
         moveRight = new GameAction("moveRight");
         moveUp = new GameAction ("moveUp");
         moveDown = new GameAction ("moveDown");
+        pause = new GameAction("pause");
         exit = new GameAction("exit",
             GameAction.DETECT_INITAL_PRESS_ONLY);
 
@@ -113,6 +120,7 @@ public class GameManager extends GameCore {
         inputManager.mapToKey(moveUp, KeyEvent.VK_UP);
         inputManager.mapToKey(moveDown, KeyEvent.VK_DOWN);
         inputManager.mapToKey(exit, KeyEvent.VK_ESCAPE);
+        inputManager.mapToKey(pause, KeyEvent.VK_P);
     }
 
 
@@ -141,13 +149,15 @@ public class GameManager extends GameCore {
             player.setVelocityX(velocityX);
             player.setVelocityY(velocityY);
         }
+        
+        
 
     }
 
 
     public void draw(Graphics2D g) {
-        renderer.draw(g, map,
-            screen.getWidth(), screen.getHeight());
+        renderer.draw(g, map,screen.getWidth(), screen.getHeight());
+
     }
 
 
@@ -262,19 +272,18 @@ public class GameManager extends GameCore {
         in the current map.
     */
     public void update(long elapsedTime) {
-        
-        
+         
         Creature player = (Creature)map.getPlayer();
 
-
+        // get keyboard/mouse input
+        checkInput(elapsedTime);
         // player is dead! start map over
         if (player.getState() == Creature.STATE_DEAD) {
             map = resourceManager.reloadMap();
             return;
         }
 
-        // get keyboard/mouse input
-        checkInput(elapsedTime);
+        
 
         // update player
         updateCreature(player, elapsedTime);
@@ -384,6 +393,7 @@ public class GameManager extends GameCore {
             Creature badguy = (Creature)collisionSprite;
             if (canKill) {
                 // kill the badguy and make player bounce
+                score+=100;
                 soundManager.play(boopSound);
                 badguy.setState(Creature.STATE_DYING);
                 player.setY(badguy.getY() - player.getHeight());
@@ -402,10 +412,11 @@ public class GameManager extends GameCore {
     */
     public void acquirePowerUp(PowerUp powerUp) {
         // remove it from the map
-        map.removeSprite(powerUp);
+        //map.removeSprite(powerUp);
 
         if (powerUp instanceof PowerUp.Star) {
             // do something here, like give the player points
+            map.removeSprite(powerUp);
             soundManager.play(prizeSound);
             key=true;
         }
@@ -415,10 +426,12 @@ public class GameManager extends GameCore {
         }
         else if (key && powerUp instanceof PowerUp.Goal) {
             // advance to next map
+            map.removeSprite(powerUp);
             soundManager.play(prizeSound,
                 new EchoFilter(2000, .7f), false);
             map = resourceManager.loadNextMap();
         }
     }
+    
 
 }
