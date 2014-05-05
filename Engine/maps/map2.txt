@@ -1,22 +1,22 @@
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-CBBRBBCBBBBBSBBBBBBBBBBBPDBBBBBBBBBBBBBBCBBBBBBBBUWYBBBBBBBC
-CBBBBBCBBBBBTBBBBBBBBBBBQEBBBBBBBBBBBBBBCBBBBBBBBVXZBBBBBBBC
-C     C                                 CM                 C
-C     C                                 CN                 C
+CBBRBBCOBBBBSBBBBBBBBBBBPDBBBBBBBBBBBBBBCBBBBBBBBUWYBBBBBBBC
+CBBBBBC*BBBBTBBBBBBBBBBBQEBBBBBBBBBBBBBBCBBBBBBBBVXZBBBBBBBC
+C     C                                oCM        2        C
+C     C          2                      CN                 C
 C     C           C                     C                  C
-C     C           C                     CCCCCCCCCCCCCCC    C
-C     C           C                     BBBBBBBBBPDBBBB    C
+C     C           C      2              CCCCCCCCCCCCCCC    C
+C     C           C                     BBBBBBBBBPDBBBB   2C
 C     C           C                     BBBBBBBBBQEBBBB    C
 C     C           C                                        C
 C     C           C                                        C
 C     CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC                  C
 C     BBBBBBBRBBBBCBBBBDBBBBBBBJBBBBBBBBB                  C
-C     BBBBBBBBBBBBCBBBBEBBBBBBBKBBBBBBBBB                  C
+C     BBBBBBBBBBBBCBBBBEBBBBBBBKBBBBBBBBB         2        C
 C                 C                             C   CCCCCCCC
-C                 B                             C   BBBBBBBC
+C               2 B                             C   BBBBBBBC
 C                 B                             C   BBBBBBBC
 C                                               C         MC
-C                                               C         NC
+C                2                              C      2  NC
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB

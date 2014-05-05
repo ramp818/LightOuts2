@@ -2,12 +2,12 @@
 CBBBBBBJBBCDPPRSBUWYBBBOCCC
 CBBBBBBKBBCEQQBTBVXZBBB*CCC
 C       LMC             CCC
-C        NC             CCC
+C        NC       1     CCC
 C         C             CCC
 C         B             CCC
 C2        B            2CCC
 CCCCCCCC      CCCCCCCCCCCCC
-CCDDDBBB      BBBBBBBBBBCCC
+CCDDDBBB   1  BBBBBBBBBBCCC
 CCEEEBBB      BBIBBBBHGFCCC
 CC                2     CCC
 CC                 L    CCC

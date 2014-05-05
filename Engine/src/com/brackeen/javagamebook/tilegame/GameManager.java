@@ -430,6 +430,7 @@ public class GameManager extends GameCore {
             soundManager.play(prizeSound,
                 new EchoFilter(2000, .7f), false);
             map = resourceManager.loadNextMap();
+            key=false;
         }
     }
     
