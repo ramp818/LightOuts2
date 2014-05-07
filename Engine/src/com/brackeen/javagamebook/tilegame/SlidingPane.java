@@ -43,7 +43,7 @@ private SoundClip Musicafondo;
 private SoundClip laugh;
 private Image fondo;
     public SlidingPane() {
-        Musicafondo = new SoundClip("sounds/slicey.wav");
+        Musicafondo = new SoundClip("sounds/fondo.wav");
         Musicafondo.setLooping(true);
         Musicafondo.play();
         fondo = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/FondoMenu.png"));

@@ -11,9 +11,12 @@ import com.brackeen.javagamebook.sound.*;
 import com.brackeen.javagamebook.input.*;
 import com.brackeen.javagamebook.test.GameCore;
 import static com.brackeen.javagamebook.tilegame.SlidingPane.x;
-
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 import com.brackeen.javagamebook.tilegame.sprites.*;
+import java.awt.image.ImageObserver;
 
 /**
     GameManager manages all parts of the game.
@@ -50,8 +53,9 @@ public class GameManager extends GameCore {
     private MidiPlayer midiPlayer;
     private SoundManager soundManager;
     private ResourceManager resourceManager;
-    private Sound prizeSound;
-    private Sound boopSound;
+    private Sound keySound;
+    private Sound levelSound;
+    private Sound deadSound;
     private InputManager inputManager;
     private TileMapRenderer renderer;
 
@@ -68,6 +72,11 @@ public class GameManager extends GameCore {
     private int score;
     private int vidas;
     private Image face;
+    private Image hearts;
+    private Image gameOver;
+    private Image dbgImage;
+    private Graphics dbg;
+    
     
 
 
@@ -92,11 +101,14 @@ public class GameManager extends GameCore {
 
         // load sounds
         soundManager = new SoundManager(PLAYBACK_FORMAT);
-        prizeSound = soundManager.getSound("sounds/prize.wav");
-        boopSound = soundManager.getSound("sounds/boop2.wav");
+        keySound = soundManager.getSound("sounds/mario.wav");
+        levelSound = soundManager.getSound("sounds/key.wav");
+        deadSound = soundManager.getSound("sounds/ballon.wav");
 
         //Carga cara personaje
         face = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/face.png"));
+        gameOver = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/FondoMenu.png"));
+        hearts = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/Corazon.png"));
     }
 
 
@@ -165,7 +177,30 @@ public class GameManager extends GameCore {
     @Override
     public void draw(Graphics2D g) {
         renderer.draw(g, map,screen.getWidth(), screen.getHeight());
-        g.drawString("Score:"+score, 20, 50);
+        g.drawString("Score:"+score, 250, 50);
+        g.drawImage(face, 0 ,0, null);
+        switch(vidas){
+            case 0:{
+              g.drawImage(gameOver, 0 ,0, null); 
+              break;
+            }
+            case 1:{
+              g.drawImage(hearts, 100 ,25, null); 
+              break;
+            }
+            case 2:{
+              g.drawImage(hearts, 100 ,25, null);
+              g.drawImage(hearts, 125 ,25, null);
+              break;
+            }
+            case 3:{
+              g.drawImage(hearts, 100 ,25, null);
+              g.drawImage(hearts, 125 ,25, null);
+              g.drawImage(hearts, 150 ,25, null); 
+              break;
+            }
+        }
+        
 
     }
 
@@ -416,7 +451,7 @@ public class GameManager extends GameCore {
             if (canKill) {
                 // kill the badguy and make player bounce
                 score+=100;
-                soundManager.play(boopSound);
+                soundManager.play(deadSound);
                 badguy.setState(Creature.STATE_DYING);
                 player.setY(badguy.getY() - player.getHeight());
             }
@@ -442,22 +477,20 @@ public class GameManager extends GameCore {
         if (powerUp instanceof PowerUp.Star) {
             // do something here, like give the player points
             map.removeSprite(powerUp);
-            soundManager.play(prizeSound);
+            soundManager.play(keySound);
             key=true;
         }
         else if (powerUp instanceof PowerUp.Music) {
             // change the music
-            soundManager.play(prizeSound);
+            //soundManager.play(prizeSound);
         }
         else if (key && powerUp instanceof PowerUp.Goal) {
             // advance to next map
             map.removeSprite(powerUp);
-            soundManager.play(prizeSound,
+            soundManager.play(levelSound,
                 new EchoFilter(2000, .7f), false);
             map = resourceManager.loadNextMap();
             key=false;
         }
     }
-    
-
 }
