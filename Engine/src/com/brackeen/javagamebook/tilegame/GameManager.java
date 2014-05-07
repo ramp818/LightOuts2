@@ -165,6 +165,7 @@ public class GameManager extends GameCore {
     @Override
     public void draw(Graphics2D g) {
         renderer.draw(g, map,screen.getWidth(), screen.getHeight());
+        g.drawString("Score:"+score, 20, 50);
 
     }
 
