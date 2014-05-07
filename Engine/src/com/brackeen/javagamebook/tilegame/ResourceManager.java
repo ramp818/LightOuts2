@@ -32,6 +32,7 @@ public class ResourceManager {
     /**
         Creates a new ResourceManager with the specified
         GraphicsConfiguration.
+     * @param gc
     */
     public ResourceManager(GraphicsConfiguration gc) {
         this.gc = gc;
@@ -43,18 +44,28 @@ public class ResourceManager {
 
     /**
         Gets an image from the images/ directory.
+     * @param name
+     * @return 
     */
     public Image loadImage(String name) {
         String filename = "images/" + name;
         return new ImageIcon(filename).getImage();
     }
 
-
+    /**
+     *
+     * @param image
+     * @return
+     */
     public Image getMirrorImage(Image image) {
         return getScaledImage(image, -1, 1);
     }
 
-
+    /**
+     *
+     * @param image
+     * @return
+     */
     public Image getFlippedImage(Image image) {
         return getScaledImage(image, 1, -1);
     }
@@ -83,7 +94,10 @@ public class ResourceManager {
         return newImage;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public TileMap loadNextMap() {
         TileMap map = null;
         while (map == null) {
@@ -105,7 +119,10 @@ public class ResourceManager {
         return map;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public TileMap reloadMap() {
         try {
             return loadMap(
@@ -213,6 +230,10 @@ public class ResourceManager {
     // code for loading sprites and images
     // -----------------------------------------------------------
 
+    /**
+     *
+     */
+    
 
     public void loadTileImages() {
         // keep looking for tile A,B,C, etc. this makes it
@@ -230,7 +251,9 @@ public class ResourceManager {
         }
     }
 
-
+    /**
+     *
+     */
     public void loadCreatureSprites() {
 
         Image[][] images = new Image[4][];

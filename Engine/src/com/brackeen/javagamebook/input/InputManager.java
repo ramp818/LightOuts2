@@ -23,14 +23,50 @@ public class InputManager implements KeyListener, MouseListener,
             "invisible");
 
     // mouse codes
-    public static final int MOUSE_MOVE_LEFT = 0;
+
+    /**
+     *
+     */
+        public static final int MOUSE_MOVE_LEFT = 0;
+
+    /**
+     *
+     */
     public static final int MOUSE_MOVE_RIGHT = 1;
+
+    /**
+     *
+     */
     public static final int MOUSE_MOVE_UP = 2;
+
+    /**
+     *
+     */
     public static final int MOUSE_MOVE_DOWN = 3;
+
+    /**
+     *
+     */
     public static final int MOUSE_WHEEL_UP = 4;
+
+    /**
+     *
+     */
     public static final int MOUSE_WHEEL_DOWN = 5;
+
+    /**
+     *
+     */
     public static final int MOUSE_BUTTON_1 = 6;
+
+    /**
+     *
+     */
     public static final int MOUSE_BUTTON_2 = 7;
+
+    /**
+     *
+     */
     public static final int MOUSE_BUTTON_3 = 8;
 
     private static final int NUM_MOUSE_CODES = 9;
@@ -54,6 +90,7 @@ public class InputManager implements KeyListener, MouseListener,
     /**
         Creates a new InputManager that listens to input from the
         specified component.
+     * @param comp
     */
     public InputManager(Component comp) {
         this.comp = comp;
@@ -74,6 +111,7 @@ public class InputManager implements KeyListener, MouseListener,
 
     /**
         Sets the cursor on this InputManager's input component.
+     * @param cursor
     */
     public void setCursor(Cursor cursor) {
         comp.setCursor(cursor);
@@ -86,6 +124,7 @@ public class InputManager implements KeyListener, MouseListener,
         of the screen, and only the changed in mouse movement
         is measured. In normal mode, the mouse is free to move
         about the screen.
+     * @param mode
     */
     public void setRelativeMouseMode(boolean mode) {
         if (mode == isRelativeMouseMode()) {
@@ -110,6 +149,7 @@ public class InputManager implements KeyListener, MouseListener,
 
     /**
         Returns whether or not relative mouse mode is on.
+     * @return 
     */
     public boolean isRelativeMouseMode() {
         return (robot != null);
@@ -121,6 +161,8 @@ public class InputManager implements KeyListener, MouseListener,
         defined in java.awt.KeyEvent. If the key already has
         a GameAction mapped to it, the new GameAction overwrites
         it.
+     * @param gameAction
+     * @param keyCode
     */
     public void mapToKey(GameAction gameAction, int keyCode) {
         keyActions[keyCode] = gameAction;
@@ -133,6 +175,8 @@ public class InputManager implements KeyListener, MouseListener,
         MOUSE_BUTTON_1, etc). If the mouse action already has
         a GameAction mapped to it, the new GameAction overwrites
         it.
+     * @param gameAction
+     * @param mouseCode
     */
     public void mapToMouse(GameAction gameAction,
         int mouseCode)
@@ -144,6 +188,7 @@ public class InputManager implements KeyListener, MouseListener,
     /**
         Clears all mapped keys and mouse actions to this
         GameAction.
+     * @param gameAction
     */
     public void clearMap(GameAction gameAction) {
         for (int i=0; i<keyActions.length; i++) {
@@ -165,6 +210,8 @@ public class InputManager implements KeyListener, MouseListener,
     /**
         Gets a List of names of the keys and mouse actions mapped
         to this GameAction. Each entry in the List is a String.
+     * @param gameCode
+     * @return 
     */
     public List getMaps(GameAction gameCode) {
         ArrayList list = new ArrayList();
@@ -205,6 +252,8 @@ public class InputManager implements KeyListener, MouseListener,
 
     /**
         Gets the name of a key code.
+     * @param keyCode
+     * @return 
     */
     public static String getKeyName(int keyCode) {
         return KeyEvent.getKeyText(keyCode);
@@ -213,6 +262,8 @@ public class InputManager implements KeyListener, MouseListener,
 
     /**
         Gets the name of a mouse code.
+     * @param mouseCode
+     * @return 
     */
     public static String getMouseName(int mouseCode) {
         switch (mouseCode) {
@@ -232,6 +283,7 @@ public class InputManager implements KeyListener, MouseListener,
 
     /**
         Gets the x position of the mouse.
+     * @return 
     */
     public int getMouseX() {
         return mouseLocation.x;
@@ -240,6 +292,7 @@ public class InputManager implements KeyListener, MouseListener,
 
     /**
         Gets the y position of the mouse.
+     * @return 
     */
     public int getMouseY() {
         return mouseLocation.y;
@@ -277,6 +330,8 @@ public class InputManager implements KeyListener, MouseListener,
     /**
         Gets the mouse code for the button specified in this
         MouseEvent.
+     * @param e
+     * @return 
     */
     public static int getMouseButtonCode(MouseEvent e) {
          switch (e.getButton()) {

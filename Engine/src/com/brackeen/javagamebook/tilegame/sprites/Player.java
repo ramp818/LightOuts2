@@ -11,6 +11,13 @@ public class Player extends Creature {
 
     private boolean onGround;
 
+    /**
+     *
+     * @param left
+     * @param right
+     * @param deadLeft
+     * @param deadRight
+     */
     public Player(Animation left, Animation right,
         Animation deadLeft, Animation deadRight)
     {

@@ -8,6 +8,10 @@ import com.brackeen.javagamebook.graphics.*;
 */
 public abstract class PowerUp extends Sprite {
 
+    /**
+     *
+     * @param anim
+     */
     public PowerUp(Animation anim) {
         super(anim);
     }
@@ -32,6 +36,11 @@ public abstract class PowerUp extends Sprite {
         A Star PowerUp. Gives the player points.
     */
     public static class Star extends PowerUp {
+
+        /**
+         *
+         * @param anim
+         */
         public Star(Animation anim) {
             super(anim);
         }
@@ -42,6 +51,11 @@ public abstract class PowerUp extends Sprite {
         A Music PowerUp. Changes the game music.
     */
     public static class Music extends PowerUp {
+
+        /**
+         *
+         * @param anim
+         */
         public Music(Animation anim) {
             super(anim);
         }
@@ -52,6 +66,11 @@ public abstract class PowerUp extends Sprite {
         A Goal PowerUp. Advances to the next map.
     */
     public static class Goal extends PowerUp {
+
+        /**
+         *
+         * @param anim
+         */
         public Goal(Animation anim) {
             super(anim);
         }

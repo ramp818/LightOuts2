@@ -3,10 +3,18 @@ package com.brackeen.javagamebook.sound;
 import java.io.*;
 import javax.sound.midi.*;
 
+/**
+ *
+ * @author Pache
+ */
 public class MidiPlayer implements MetaEventListener {
 
     // Midi meta event
-    public static final int END_OF_TRACK_MESSAGE = 47;
+
+    /**
+     *
+     */
+        public static final int END_OF_TRACK_MESSAGE = 47;
 
     private Sequencer sequencer;
     private boolean loop;
@@ -30,6 +38,8 @@ public class MidiPlayer implements MetaEventListener {
     /**
         Loads a sequence from the file system. Returns null if
         an error occurs.
+     * @param filename
+     * @return 
     */
     public Sequence getSequence(String filename) {
         try {
@@ -45,6 +55,8 @@ public class MidiPlayer implements MetaEventListener {
     /**
         Loads a sequence from an input stream. Returns null if
         an error occurs.
+     * @param is
+     * @return 
     */
     public Sequence getSequence(InputStream is) {
         try {
@@ -69,6 +81,8 @@ public class MidiPlayer implements MetaEventListener {
     /**
         Plays a sequence, optionally looping. This method returns
         immediately. The sequence is not played if it is invalid.
+     * @param sequence
+     * @param loop
     */
     public void play(Sequence sequence, boolean loop) {
         if (sequencer != null && sequence != null && sequencer.isOpen()) {
@@ -89,6 +103,7 @@ public class MidiPlayer implements MetaEventListener {
         event occurs. In this case, when the end-of-track meta
         event is received, the sequence is restarted if
         looping is on.
+     * @param event
     */
     public void meta(MetaMessage event) {
         if (event.getType() == END_OF_TRACK_MESSAGE) {
@@ -122,6 +137,7 @@ public class MidiPlayer implements MetaEventListener {
 
     /**
         Gets the sequencer.
+     * @return 
     */
     public Sequencer getSequencer() {
         return sequencer;
@@ -130,6 +146,7 @@ public class MidiPlayer implements MetaEventListener {
 
     /**
         Sets the paused state. Music may not immediately pause.
+     * @param paused
     */
     public void setPaused(boolean paused) {
         if (this.paused != paused && sequencer != null && sequencer.isOpen()) {
@@ -146,6 +163,7 @@ public class MidiPlayer implements MetaEventListener {
 
     /**
         Returns the paused state.
+     * @return 
     */
     public boolean isPaused() {
         return paused;

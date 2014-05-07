@@ -32,6 +32,8 @@ public class TileMapRenderer {
 
     /**
         Converts a pixel position to a tile position.
+     * @param pixels
+     * @return 
     */
     public static int pixelsToTiles(float pixels) {
         return pixelsToTiles(Math.round(pixels));
@@ -40,6 +42,8 @@ public class TileMapRenderer {
 
     /**
         Converts a pixel position to a tile position.
+     * @param pixels
+     * @return 
     */
     public static int pixelsToTiles(int pixels) {
         // use shifting to get correct values for negative pixels
@@ -53,6 +57,8 @@ public class TileMapRenderer {
 
     /**
         Converts a tile position to a pixel position.
+     * @param numTiles
+     * @return 
     */
     public static int tilesToPixels(int numTiles) {
         // no real reason to use shifting here.
@@ -67,6 +73,7 @@ public class TileMapRenderer {
 
     /**
         Sets the background to draw.
+     * @param background
     */
     public void setBackground(Image background) {
         this.background = background;

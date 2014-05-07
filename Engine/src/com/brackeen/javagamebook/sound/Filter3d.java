@@ -27,6 +27,9 @@ public class Filter3d extends SoundFilter {
         changed while this filter is running.
         <p> The maxDistance parameter is the maximum distance
         that the sound can be heard.
+     * @param source
+     * @param listener
+     * @param maxDistance
     */
     public Filter3d(Sprite source, Sprite listener,
         int maxDistance)
@@ -41,6 +44,9 @@ public class Filter3d extends SoundFilter {
     /**
         Filters the sound so that it gets more quiet with
         distance.
+     * @param samples
+     * @param offset
+     * @param length
     */
     public void filter(byte[] samples, int offset, int length) {
 

@@ -30,6 +30,7 @@ public class SoundManager extends ThreadPool {
     /**
         Creates a new SoundManager using the maximum number of
         simultaneous sounds.
+     * @param playbackFormat
     */
     public SoundManager(AudioFormat playbackFormat) {
         this(playbackFormat,
@@ -40,6 +41,8 @@ public class SoundManager extends ThreadPool {
     /**
         Creates a new SoundManager with the specified maximum
         number of simultaneous sounds.
+     * @param playbackFormat
+     * @param maxSimultaneousSounds
     */
     public SoundManager(AudioFormat playbackFormat,
         int maxSimultaneousSounds)
@@ -60,6 +63,8 @@ public class SoundManager extends ThreadPool {
     /**
         Gets the maximum number of simultaneous sounds with the
         specified AudioFormat that the default mixer can play.
+     * @param playbackFormat
+     * @return 
     */
     public static int getMaxSimultaneousSounds(
         AudioFormat playbackFormat)
@@ -100,6 +105,7 @@ public class SoundManager extends ThreadPool {
 
     /**
         Sets the paused state. Sounds may not pause immediately.
+     * @param paused
     */
     public void setPaused(boolean paused) {
         if (this.paused != paused) {
@@ -116,6 +122,7 @@ public class SoundManager extends ThreadPool {
 
     /**
         Returns the paused state.
+     * @return 
     */
     public boolean isPaused() {
         return paused;
@@ -125,6 +132,8 @@ public class SoundManager extends ThreadPool {
     /**
         Loads a Sound from the file system. Returns null if an
         error occurs.
+     * @param filename
+     * @return 
     */
     public Sound getSound(String filename) {
         return getSound(getAudioInputStream(filename));
@@ -134,6 +143,8 @@ public class SoundManager extends ThreadPool {
     /**
         Loads a Sound from an input stream. Returns null if an
         error occurs.
+     * @param is
+     * @return 
     */
     public Sound getSound(InputStream is) {
         return getSound(getAudioInputStream(is));
@@ -142,6 +153,8 @@ public class SoundManager extends ThreadPool {
 
     /**
         Loads a Sound from an AudioInputStream.
+     * @param audioStream
+     * @return 
     */
     public Sound getSound(AudioInputStream audioStream) {
         if (audioStream == null) {
@@ -171,6 +184,8 @@ public class SoundManager extends ThreadPool {
     /**
         Creates an AudioInputStream from a sound from the file
         system.
+     * @param filename
+     * @return 
     */
     public AudioInputStream getAudioInputStream(String filename) {
         try {
@@ -187,6 +202,8 @@ public class SoundManager extends ThreadPool {
     /**
         Creates an AudioInputStream from a sound from an input
         stream
+     * @param is
+     * @return 
     */
     public AudioInputStream getAudioInputStream(InputStream is) {
 
@@ -218,6 +235,8 @@ public class SoundManager extends ThreadPool {
 
     /**
         Plays a sound. This method returns immediately.
+     * @param sound
+     * @return 
     */
     public InputStream play(Sound sound) {
         return play(sound, null, false);
@@ -227,6 +246,10 @@ public class SoundManager extends ThreadPool {
     /**
         Plays a sound with an optional SoundFilter, and optionally
         looping. This method returns immediately.
+     * @param sound
+     * @param filter
+     * @param loop
+     * @return 
     */
     public InputStream play(Sound sound, SoundFilter filter,
         boolean loop)
@@ -250,6 +273,8 @@ public class SoundManager extends ThreadPool {
     /**
         Plays a sound from an InputStream. This method
         returns immediately.
+     * @param is
+     * @return 
     */
     public InputStream play(InputStream is) {
         return play(is, null);
@@ -259,6 +284,9 @@ public class SoundManager extends ThreadPool {
     /**
         Plays a sound from an InputStream with an optional
         sound filter. This method returns immediately.
+     * @param is
+     * @param filter
+     * @return 
     */
     public InputStream play(InputStream is, SoundFilter filter) {
         if (is != null) {
@@ -338,6 +366,10 @@ public class SoundManager extends ThreadPool {
 
         private InputStream source;
 
+        /**
+         *
+         * @param source
+         */
         public SoundPlayer(InputStream source) {
             this.source = source;
         }

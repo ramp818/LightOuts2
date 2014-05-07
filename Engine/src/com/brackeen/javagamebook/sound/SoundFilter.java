@@ -25,6 +25,7 @@ public abstract class SoundFilter{
         plays after the sound is finished. An example would
         be an echo that plays longer than it's original sound.
         This method returns 0 by default.
+     * @return 
     */
     public int getRemainingSize() {
         return 0;
@@ -34,6 +35,7 @@ public abstract class SoundFilter{
     /**
         Filters an array of samples. Samples should be in
         16-bit, signed, little-endian format.
+     * @param samples
     */
     public void filter(byte[] samples) {
         filter(samples, 0, samples.length);
@@ -44,6 +46,9 @@ public abstract class SoundFilter{
         Filters an array of samples. Samples should be in
         16-bit, signed, little-endian format. This method
         should be implemented by subclasses.
+     * @param samples
+     * @param offset
+     * @param length
     */
     public abstract void filter(
         byte[] samples, int offset, int length);
@@ -53,6 +58,9 @@ public abstract class SoundFilter{
         Convenience method for getting a 16-bit sample from a
         byte array. Samples should be in 16-bit, signed,
         little-endian format.
+     * @param buffer
+     * @param position
+     * @return 
     */
     public static short getSample(byte[] buffer, int position) {
         return (short)(
@@ -65,6 +73,9 @@ public abstract class SoundFilter{
         Convenience method for setting a 16-bit sample in a
         byte array. Samples should be in 16-bit, signed,
         little-endian format.
+     * @param buffer
+     * @param position
+     * @param sample
     */
     public static void setSample(byte[] buffer, int position,
         short sample)

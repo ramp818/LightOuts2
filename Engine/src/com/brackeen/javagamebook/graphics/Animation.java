@@ -34,7 +34,9 @@ public class Animation {
         Creates a duplicate of this animation. The list of frames
         are shared between the two Animations, but each Animation
         can be animated independently.
+     * @return 
     */
+    @Override
     public Object clone() {
         return new Animation(frames, totalDuration);
     }
@@ -43,6 +45,8 @@ public class Animation {
     /**
         Adds an image to the animation with the specified
         duration (time to display the image).
+     * @param image
+     * @param duration
     */
     public synchronized void addFrame(Image image,
         long duration)
@@ -64,6 +68,7 @@ public class Animation {
     /**
         Updates this animation's current image (frame), if
         neccesary.
+     * @param elapsedTime
     */
     public synchronized void update(long elapsedTime) {
         if (frames.size() > 1) {
@@ -84,6 +89,7 @@ public class Animation {
     /**
         Gets this Animation's current image. Returns null if this
         animation has no images.
+     * @return 
     */
     public synchronized Image getImage() {
         if (frames.size() == 0) {

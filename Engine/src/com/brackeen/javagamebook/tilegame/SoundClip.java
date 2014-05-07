@@ -14,6 +14,10 @@ import javax.sound.sampled.AudioSystem;
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ *
+ * @author Pache
+ */
 public class SoundClip {
 
 	private AudioInputStream sample;
@@ -56,6 +60,7 @@ public class SoundClip {
 
 	/** 
 	 * Metodo modificador usado para modificar si el sonido se repite.
+     * @param looping
 	 * @param _looping es un valor <code>boleano</code>. 
 	 */
 	public void setLooping(boolean looping) {
@@ -72,6 +77,7 @@ public class SoundClip {
 
 	/** 
 	 * Metodo modificador usado para definir el numero de repeticiones.
+     * @param repeat
 	 * @param _repeat es un <code>entero</code> que es el numero de repeticiones. 
 	 */
 	public void setRepeat(int repeat) {
@@ -88,6 +94,7 @@ public class SoundClip {
 
 	/**
 	 * Metodo modificador que asigna un nombre al archivo.
+     * @param filename
 	 * @param _filename es un <code>String</code> con el nombre del archivo. 
 	 */
 	public void setFilename(String filename) { 
@@ -128,6 +135,7 @@ public class SoundClip {
 	/** 
 	 * Metodo que carga el archivo de sonido.
 	 * @param audiofile es un <code>String</code> con el nombre del archivo de sonido.
+     * @return 
 	 */
 	public boolean load(String audiofile) {
 		try {

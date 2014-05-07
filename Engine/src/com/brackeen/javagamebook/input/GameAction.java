@@ -31,6 +31,7 @@ public class GameAction {
 
     /**
         Create a new GameAction with the NORMAL behavior.
+     * @param name
     */
     public GameAction(String name) {
         this(name, NORMAL);
@@ -39,6 +40,8 @@ public class GameAction {
 
     /**
         Create a new GameAction with the specified behavior.
+     * @param name
+     * @param behavior
     */
     public GameAction(String name, int behavior) {
         this.name = name;
@@ -49,6 +52,7 @@ public class GameAction {
 
     /**
         Gets the name of this GameAction.
+     * @return 
     */
     public String getName() {
         return name;
@@ -86,6 +90,7 @@ public class GameAction {
     /**
         Signals that the key was pressed a specified number of
         times, or that the mouse move a spcified distance.
+     * @param amount
     */
     public synchronized void press(int amount) {
         if (state != STATE_WAITING_FOR_RELEASE) {
@@ -107,6 +112,7 @@ public class GameAction {
     /**
         Returns whether the key was pressed or not since last
         checked.
+     * @return 
     */
     public synchronized boolean isPressed() {
         return (getAmount() != 0);
@@ -117,6 +123,7 @@ public class GameAction {
         For keys, this is the number of times the key was
         pressed since it was last checked.
         For mouse movement, this is the distance moved.
+     * @return 
     */
     public synchronized int getAmount() {
         int retVal = amount;

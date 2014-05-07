@@ -18,6 +18,7 @@ public class LoopingByteInputStream extends ByteArrayInputStream {
     /**
         Creates a new LoopingByteInputStream with the specified
         byte array. The array is not copied.
+     * @param buffer
     */
     public LoopingByteInputStream(byte[] buffer) {
         super(buffer);
@@ -30,6 +31,10 @@ public class LoopingByteInputStream extends ByteArrayInputStream {
         end of the array is reached, the reading starts over from
         the beginning of the array. Returns -1 if the array has
         been closed.
+     * @param buffer
+     * @param length
+     * @param offset
+     * @return 
     */
     public int read(byte[] buffer, int offset, int length) {
         if (closed) {

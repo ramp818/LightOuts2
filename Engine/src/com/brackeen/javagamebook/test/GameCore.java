@@ -11,6 +11,9 @@ import com.brackeen.javagamebook.graphics.ScreenManager;
 */
 public abstract class GameCore {
 
+    /**
+     *
+     */
     protected static final int FONT_SIZE = 24;
 
     private static final DisplayMode POSSIBLE_MODES[] = {
@@ -26,6 +29,10 @@ public abstract class GameCore {
     };
 
     private boolean isRunning;
+
+    /**
+     *
+     */
     protected ScreenManager screen;
 
 
@@ -93,7 +100,11 @@ public abstract class GameCore {
         isRunning = true;
     }
 
-
+    /**
+     *
+     * @param fileName
+     * @return
+     */
     public Image loadImage(String fileName) {
         return new ImageIcon(fileName).getImage();
     }
@@ -132,6 +143,7 @@ public abstract class GameCore {
     /**
         Updates the state of the game/animation based on the
         amount of elapsed time that has passed.
+     * @param elapsedTime
     */
     public void update(long elapsedTime) {
         // do nothing
@@ -141,6 +153,7 @@ public abstract class GameCore {
     /**
         Draws to the screen. Subclasses must override this
         method.
+     * @param g
     */
     public abstract void draw(Graphics2D g);
 }

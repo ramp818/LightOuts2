@@ -14,6 +14,7 @@ public class FilterSequence extends SoundFilter {
         Creates a new FilterSequence object with the specified
         array of SoundFilters. The samples run through each
         SoundFilter in the order of this array.
+     * @param filters
     */
     public FilterSequence(SoundFilter[] filters) {
         this.filters = filters;
@@ -23,6 +24,7 @@ public class FilterSequence extends SoundFilter {
     /**
         Returns the maximum remaining size of all SoundFilters
         in this FilterSequence.
+     * @return 
     */
     public int getRemainingSize() {
         int max = 0;
@@ -46,6 +48,9 @@ public class FilterSequence extends SoundFilter {
     /**
         Filters the sound simple through each SoundFilter in this
         FilterSequence.
+     * @param samples
+     * @param offset
+     * @param length
     */
     public void filter(byte[] samples, int offset, int length) {
         for (int i=0; i<filters.length; i++) {

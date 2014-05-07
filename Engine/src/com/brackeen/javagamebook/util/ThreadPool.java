@@ -49,7 +49,11 @@ public class ThreadPool extends ThreadGroup {
 
     }
 
-
+    /**
+     *
+     * @return
+     * @throws InterruptedException
+     */
     protected synchronized Runnable getTask()
         throws InterruptedException
     {

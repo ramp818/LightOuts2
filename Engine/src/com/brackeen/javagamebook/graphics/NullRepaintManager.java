@@ -19,20 +19,24 @@ public class NullRepaintManager extends RepaintManager {
         RepaintManager.setCurrentManager(repaintManager);
     }
 
+    @Override
     public void addInvalidComponent(JComponent c) {
         // do nothing
     }
 
+    @Override
     public void addDirtyRegion(JComponent c, int x, int y,
         int w, int h)
     {
         // do nothing
     }
 
+    @Override
     public void markCompletelyDirty(JComponent c) {
         // do nothing
     }
 
+    @Override
     public void paintDirtyRegions() {
         // do nothing
     }

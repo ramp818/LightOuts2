@@ -20,6 +20,10 @@ import com.brackeen.javagamebook.tilegame.sprites.*;
 */
 public class GameManager extends GameCore {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         SlidingPane fw=new SlidingPane();
         do{
@@ -36,6 +40,9 @@ public class GameManager extends GameCore {
 
     private static final int DRUM_TRACK = 1;
 
+    /**
+     *
+     */
     public static final float GRAVITY = 0; //0.002f;
 
     private Point pointCache = new Point();
@@ -59,8 +66,7 @@ public class GameManager extends GameCore {
     private boolean paused;
     
     private int score;
-    private float health=100;
-    private float maxHealth=150;
+    private int vidas;
     private Image face;
     
 
@@ -70,6 +76,7 @@ public class GameManager extends GameCore {
         key=false;
         paused=false;
         score=0;
+        vidas=3;
         // set up input manager
         initInput();
 
@@ -155,6 +162,7 @@ public class GameManager extends GameCore {
     }
 
 
+    @Override
     public void draw(Graphics2D g) {
         renderer.draw(g, map,screen.getWidth(), screen.getHeight());
 
@@ -163,6 +171,7 @@ public class GameManager extends GameCore {
 
     /**
         Gets the current map.
+     * @return 
     */
     public TileMap getMap() {
         return map;
@@ -178,6 +187,10 @@ public class GameManager extends GameCore {
         Gets the tile that a Sprites collides with. Only the
         Sprite's X or Y should be changed, not both. Returns null
         if no collision is detected.
+     * @param sprite
+     * @param newX
+     * @param newY
+     * @return 
     */
     public Point getTileCollision(Sprite sprite,
         float newX, float newY)
@@ -217,6 +230,9 @@ public class GameManager extends GameCore {
         Checks if two Sprites collide with one another. Returns
         false if the two Sprites are the same. Returns false if
         one of the Sprites is a Creature that is not alive.
+     * @param s1
+     * @param s2
+     * @return 
     */
     public boolean isCollision(Sprite s1, Sprite s2) {
         // if the Sprites are the same, return false
@@ -249,6 +265,8 @@ public class GameManager extends GameCore {
     /**
         Gets the Sprite that collides with the specified Sprite,
         or null if no Sprite collides with the specified Sprite.
+     * @param sprite
+     * @return 
     */
     public Sprite getSpriteCollision(Sprite sprite) {
 
@@ -270,6 +288,7 @@ public class GameManager extends GameCore {
     /**
         Updates Animation, position, and velocity of all Sprites
         in the current map.
+     * @param elapsedTime
     */
     public void update(long elapsedTime) {
          
@@ -376,6 +395,8 @@ public class GameManager extends GameCore {
         Checks for Player collision with other Sprites. If
         canKill is true, collisions with Creatures will kill
         them.
+     * @param player
+     * @param canKill
     */
     public void checkPlayerCollision(Player player,
         boolean canKill)
@@ -401,6 +422,8 @@ public class GameManager extends GameCore {
             else {
                 // player dies!
                 player.setState(Creature.STATE_DYING);
+                key=false;
+                vidas-=1;
             }
         }
     }
@@ -409,6 +432,7 @@ public class GameManager extends GameCore {
     /**
         Gives the player the speicifed power up and removes it
         from the map.
+     * @param powerUp
     */
     public void acquirePowerUp(PowerUp powerUp) {
         // remove it from the map

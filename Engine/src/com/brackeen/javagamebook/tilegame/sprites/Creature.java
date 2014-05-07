@@ -15,8 +15,19 @@ public abstract class Creature extends Sprite {
     */
     private static final int DIE_TIME = 1000;
 
+    /**
+     *
+     */
     public static final int STATE_NORMAL = 0;
+
+    /**
+     *
+     */
     public static final int STATE_DYING = 1;
+
+    /**
+     *
+     */
     public static final int STATE_DEAD = 2;
 
     private Animation left;
@@ -28,6 +39,10 @@ public abstract class Creature extends Sprite {
 
     /**
         Creates a new Creature with the specified Animations.
+     * @param left
+     * @param right
+     * @param deadRight
+     * @param deadLeft
     */
     public Creature(Animation left, Animation right,
         Animation deadLeft, Animation deadRight)
@@ -62,6 +77,7 @@ public abstract class Creature extends Sprite {
 
     /**
         Gets the maximum speed of this Creature.
+     * @return 
     */
     public float getMaxSpeed() {
         return 0;
@@ -82,6 +98,7 @@ public abstract class Creature extends Sprite {
     /**
         Gets the state of this Creature. The state is either
         STATE_NORMAL, STATE_DYING, or STATE_DEAD.
+     * @return 
     */
     public int getState() {
         return state;
@@ -91,6 +108,7 @@ public abstract class Creature extends Sprite {
     /**
         Sets the state of this Creature to STATE_NORMAL,
         STATE_DYING, or STATE_DEAD.
+     * @param state
     */
     public void setState(int state) {
         if (this.state != state) {
@@ -106,6 +124,7 @@ public abstract class Creature extends Sprite {
 
     /**
         Checks if this creature is alive.
+     * @return 
     */
     public boolean isAlive() {
         return (state == STATE_NORMAL);
@@ -114,6 +133,7 @@ public abstract class Creature extends Sprite {
 
     /**
         Checks if this creature is flying.
+     * @return 
     */
     public boolean isFlying() {
         return false;

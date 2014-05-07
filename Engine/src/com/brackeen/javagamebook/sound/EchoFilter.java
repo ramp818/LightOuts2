@@ -19,6 +19,8 @@ public class EchoFilter extends SoundFilter {
         <p>The decay value is how much the echo has decayed from
         the source. A decay value of .5 means the echo heard is
         half as loud as the source.
+     * @param numDelaySamples
+     * @param decay
     */
     public EchoFilter(int numDelaySamples, float decay) {
         delayBuffer = new short[numDelaySamples];
@@ -31,6 +33,7 @@ public class EchoFilter extends SoundFilter {
         filter can echo after the sound is done playing.
         Ensures that the sound will have decayed to below 1%
         of maximum volume (amplitude).
+     * @return 
     */
     public int getRemainingSize() {
         float finalDecay = 0.01f;
@@ -59,6 +62,9 @@ public class EchoFilter extends SoundFilter {
         played are added to the sound in the delay buffer
         multipied by the decay rate. The result is then stored in
         the delay buffer, so multiple echoes are heard.
+     * @param samples
+     * @param offset
+     * @param length
     */
     public void filter(byte[] samples, int offset, int length) {
 

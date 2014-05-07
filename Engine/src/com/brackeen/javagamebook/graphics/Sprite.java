@@ -2,8 +2,15 @@ package com.brackeen.javagamebook.graphics;
 
 import java.awt.Image;
 
+/**
+ *
+ * @author Pache
+ */
 public class Sprite {
 
+    /**
+     *
+     */
     protected Animation anim;
     // position (pixels)
     private float x;
@@ -14,6 +21,7 @@ public class Sprite {
 
     /**
         Creates a new Sprite object with the specified Animation.
+     * @param anim
     */
     public Sprite(Animation anim) {
         this.anim = anim;
@@ -22,6 +30,7 @@ public class Sprite {
     /**
         Updates this Sprite's Animation and its position based
         on the velocity.
+     * @param elapsedTime
     */
     public void update(long elapsedTime) {
         x += dx * elapsedTime;
@@ -31,6 +40,7 @@ public class Sprite {
 
     /**
         Gets this Sprite's current x position.
+     * @return 
     */
     public float getX() {
         return x;
@@ -38,6 +48,7 @@ public class Sprite {
 
     /**
         Gets this Sprite's current y position.
+     * @return 
     */
     public float getY() {
         return y;
@@ -45,6 +56,7 @@ public class Sprite {
 
     /**
         Sets this Sprite's current x position.
+     * @param x
     */
     public void setX(float x) {
         this.x = x;
@@ -52,6 +64,7 @@ public class Sprite {
 
     /**
         Sets this Sprite's current y position.
+     * @param y
     */
     public void setY(float y) {
         this.y = y;
@@ -60,6 +73,7 @@ public class Sprite {
     /**
         Gets this Sprite's width, based on the size of the
         current image.
+     * @return 
     */
     public int getWidth() {
         return anim.getImage().getWidth(null);
@@ -68,6 +82,7 @@ public class Sprite {
     /**
         Gets this Sprite's height, based on the size of the
         current image.
+     * @return 
     */
     public int getHeight() {
         return anim.getImage().getHeight(null);
@@ -76,6 +91,7 @@ public class Sprite {
     /**
         Gets the horizontal velocity of this Sprite in pixels
         per millisecond.
+     * @return 
     */
     public float getVelocityX() {
         return dx;
@@ -84,6 +100,7 @@ public class Sprite {
     /**
         Gets the vertical velocity of this Sprite in pixels
         per millisecond.
+     * @return 
     */
     public float getVelocityY() {
         return dy;
@@ -92,6 +109,7 @@ public class Sprite {
     /**
         Sets the horizontal velocity of this Sprite in pixels
         per millisecond.
+     * @param dx
     */
     public void setVelocityX(float dx) {
         this.dx = dx;
@@ -100,6 +118,7 @@ public class Sprite {
     /**
         Sets the vertical velocity of this Sprite in pixels
         per millisecond.
+     * @param dy
     */
     public void setVelocityY(float dy) {
         this.dy = dy;
@@ -107,6 +126,7 @@ public class Sprite {
 
     /**
         Gets this Sprite's current image.
+     * @return 
     */
     public Image getImage() {
         return anim.getImage();
@@ -115,7 +135,9 @@ public class Sprite {
     /**
         Clones this Sprite. Does not clone position or velocity
         info.
+     * @return 
     */
+    @Override
     public Object clone() {
         return new Sprite(anim);
     }

@@ -7,6 +7,13 @@ import com.brackeen.javagamebook.graphics.Animation;
 */
 public class Grub extends Creature {
 
+    /**
+     *
+     * @param left
+     * @param right
+     * @param deadLeft
+     * @param deadRight
+     */
     public Grub(Animation left, Animation right,
         Animation deadLeft, Animation deadRight)
     {

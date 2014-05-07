@@ -19,6 +19,8 @@ public class FilteredSoundStream extends FilterInputStream {
     /**
         Creates a new FilteredSoundStream object with the
         specified InputStream and SoundFilter.
+     * @param in
+     * @param soundFilter
     */
     public FilteredSoundStream(InputStream in,
         SoundFilter soundFilter)
@@ -32,6 +34,10 @@ public class FilteredSoundStream extends FilterInputStream {
     /**
         Overrides the FilterInputStream method to apply this
         filter whenever bytes are read
+     * @param samples
+     * @param offset
+     * @param length
+     * @return 
     */
     public int read(byte[] samples, int offset, int length)
         throws IOException

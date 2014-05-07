@@ -11,6 +11,7 @@ public class Sound {
     /**
         Create a new Sound object with the specified byte array.
         The array is not copied.
+     * @param samples
     */
     public Sound(byte[] samples) {
         this.samples = samples;
@@ -19,6 +20,7 @@ public class Sound {
 
     /**
         Returns this Sound's objects samples as a byte array.
+     * @return 
     */
     public byte[] getSamples() {
         return samples;

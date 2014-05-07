@@ -38,6 +38,7 @@ public class ScreenManager {
         Returns the first compatible mode in a list of modes.
         Returns null if no modes are compatible.
      * @param modes
+     * @return 
     */
     public DisplayMode findFirstCompatibleMode(
         DisplayMode modes[])
@@ -73,6 +74,9 @@ public class ScreenManager {
         Likewise, the refresh rate is ignored if one of the
         modes has a refresh rate of
         DisplayMode.REFRESH_RATE_UNKNOWN.
+     * @param mode1
+     * @param mode2
+     * @return 
     */
     public boolean displayModesMatch(DisplayMode mode1,
         DisplayMode mode2)
@@ -111,6 +115,7 @@ public class ScreenManager {
         changed on this system, the current display mode is used.
         <p>
         The display uses a BufferStrategy with 2 buffers.
+     * @param displayMode
     */
     public void setFullScreen(DisplayMode displayMode) {
         final JFrame frame = new JFrame();
@@ -135,6 +140,7 @@ public class ScreenManager {
         // avoid potential deadlock in 1.4.1_02
         try {
             EventQueue.invokeAndWait(new Runnable() {
+                @Override
                 public void run() {
                     frame.createBufferStrategy(2);
                 }
@@ -157,6 +163,7 @@ public class ScreenManager {
         call update() to show any graphics drawn.
         <p>
         The application must dispose of the graphics object.
+     * @return 
     */
     public Graphics2D getGraphics() {
         Window window = device.getFullScreenWindow();
@@ -190,6 +197,7 @@ public class ScreenManager {
     /**
         Returns the window currently used in full screen mode.
         Returns null if the device is not in full screen mode.
+     * @return 
     */
     public JFrame getFullScreenWindow() {
         return (JFrame)device.getFullScreenWindow();
@@ -200,6 +208,7 @@ public class ScreenManager {
         Returns the width of the window currently used in full
         screen mode. Returns 0 if the device is not in full
         screen mode.
+     * @return 
     */
     public int getWidth() {
         Window window = device.getFullScreenWindow();
@@ -216,6 +225,7 @@ public class ScreenManager {
         Returns the height of the window currently used in full
         screen mode. Returns 0 if the device is not in full
         screen mode.
+     * @return 
     */
     public int getHeight() {
         Window window = device.getFullScreenWindow();
@@ -242,6 +252,10 @@ public class ScreenManager {
 
     /**
         Creates an image compatible with the current display.
+     * @param w
+     * @param h
+     * @param transparancy
+     * @return 
     */
     public BufferedImage createCompatibleImage(int w, int h,
         int transparancy)
