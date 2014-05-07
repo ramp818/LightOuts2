@@ -114,6 +114,25 @@ public class GameManager extends GameCore {
         hearts = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/Corazon.png"));
         won = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/somuchwin.png"));
     }
+    
+    
+    /**
+        Tests whether the game is paused or not.
+    */
+    public boolean isPaused() {
+        return paused;
+    }
+
+
+    /**
+        Sets the paused state.
+    */
+    public void setPaused(boolean p) {
+        if (paused != p) {
+            this.paused = p;
+            inputManager.resetAllGameActions();
+        }
+    }
 
 
     /**
@@ -130,7 +149,8 @@ public class GameManager extends GameCore {
         moveRight = new GameAction("moveRight");
         moveUp = new GameAction ("moveUp");
         moveDown = new GameAction ("moveDown");
-        pause = new GameAction("pause");
+        pause = new GameAction("pause",
+            GameAction.DETECT_INITAL_PRESS_ONLY);
         exit = new GameAction("exit",
             GameAction.DETECT_INITAL_PRESS_ONLY);
 
@@ -148,7 +168,9 @@ public class GameManager extends GameCore {
 
 
     private void checkInput(long elapsedTime) {
-
+        if (pause.isPressed()) {
+            setPaused(!isPaused());
+        }
         if (exit.isPressed()) {
             stop();
         }
@@ -334,7 +356,7 @@ public class GameManager extends GameCore {
      * @param elapsedTime
     */
     public void update(long elapsedTime) {
-         
+         if(!isPaused()){
         Creature player = (Creature)map.getPlayer();
 
         // get keyboard/mouse input
@@ -368,7 +390,7 @@ public class GameManager extends GameCore {
             sprite.update(elapsedTime);
         }
     }
-
+    }
 
     /**
         Updates the creature, applying gravity for creatures that
