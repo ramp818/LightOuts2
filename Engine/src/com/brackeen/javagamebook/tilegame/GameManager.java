@@ -356,11 +356,12 @@ public class GameManager extends GameCore {
      * @param elapsedTime
     */
     public void update(long elapsedTime) {
-         if(!isPaused()){
-        Creature player = (Creature)map.getPlayer();
-
         // get keyboard/mouse input
         checkInput(elapsedTime);
+        if(!isPaused()){
+        Creature player = (Creature)map.getPlayer();
+
+
         // player is dead! start map over
         if (player.getState() == Creature.STATE_DEAD) {
             map = resourceManager.reloadMap();
