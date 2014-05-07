@@ -71,9 +71,11 @@ public class GameManager extends GameCore {
     
     private int score;
     private int vidas;
+    private int contNiveles;
     private Image face;
     private Image hearts;
     private Image gameOver;
+    private Image won;
     private Image dbgImage;
     private Graphics dbg;
     
@@ -86,6 +88,7 @@ public class GameManager extends GameCore {
         paused=false;
         score=0;
         vidas=3;
+        contNiveles=0;
         // set up input manager
         initInput();
 
@@ -107,8 +110,9 @@ public class GameManager extends GameCore {
 
         //Carga cara personaje
         face = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/face.png"));
-        gameOver = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/FondoMenu.png"));
+        gameOver = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/gameover.png"));
         hearts = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/Corazon.png"));
+        won = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/somuchwin.png"));
     }
 
 
@@ -199,6 +203,9 @@ public class GameManager extends GameCore {
               g.drawImage(hearts, 150 ,25, null); 
               break;
             }
+        }
+        if(contNiveles==3){
+            g.drawImage(won, 0 ,0, null);
         }
         
 
@@ -490,6 +497,7 @@ public class GameManager extends GameCore {
             soundManager.play(levelSound,
                 new EchoFilter(2000, .7f), false);
             map = resourceManager.loadNextMap();
+            contNiveles+=1;
             key=false;
         }
     }
