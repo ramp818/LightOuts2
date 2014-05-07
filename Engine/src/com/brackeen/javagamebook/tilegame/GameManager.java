@@ -76,6 +76,7 @@ public class GameManager extends GameCore {
     private Image hearts;
     private Image gameOver;
     private Image won;
+    private Image pausa;
     private Image dbgImage;
     private Graphics dbg;
     
@@ -113,6 +114,7 @@ public class GameManager extends GameCore {
         gameOver = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/gameover.png"));
         hearts = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/Corazon.png"));
         won = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/somuchwin.png"));
+        pausa = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/PAUSA.png"));
     }
     
     
@@ -228,6 +230,9 @@ public class GameManager extends GameCore {
         }
         if(contNiveles==3){
             g.drawImage(won, 0 ,0, null);
+        }
+        if(isPaused()){
+            g.drawImage(pausa, 300 ,225, null);
         }
         
 
